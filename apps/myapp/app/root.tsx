@@ -8,6 +8,14 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
+import type { LinksFunction } from "@remix-run/node";
+// @ts-ignore
+import stylesheet from "~/tailwind.css?url";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
+
 export const meta: MetaFunction = () => [
   {
     title: 'New Remix App',
@@ -24,6 +32,9 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <h1 className="text-3xl font-bold underline">
+          Hello world!
+        </h1>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
